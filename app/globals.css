@@ -1,0 +1,438 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/* Design Tokens — Tailwind v4 Theme Variables                        */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-abyss: #0d1017;
+  --color-ash: #121620;
+  --color-bone: #c8d0d8;
+  --color-slate: #8a98a6;
+  --color-moss: #607890;
+  --color-signal: #7890a8;
+  --color-ember: #384858;
+
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* ------------------------------------------------------------------ */
+/* Global Color Variable Mappings & Base Reset                        */
+/* ------------------------------------------------------------------ */
+:root {
+  --bg-app: var(--color-abyss);
+  --bg-surface: var(--color-ash);
+  --bg-card: #151a22;
+  --bg-input: #151a22;
+  --bg-hover-main: #202734;
+  --bg-hover-sec: #202c3e;
+
+  --border-dark: #000000;
+  --border-subtle: #1f2633;
+
+  --text-bright: #ffffff;
+  --text-main: var(--color-bone);
+  --text-muted: var(--color-signal);
+  --text-subtle: #6d7a88;
+
+  --accent-cyan: #00f0ff;
+  --accent-pink: #ff0055;
+  --accent-green: #39ff14;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(96, 120, 144, 0.35);
+  color: #ffffff;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 1px solid var(--text-muted);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Reusable Retro Buttons & Base Form Controls                        */
+/* ------------------------------------------------------------------ */
+@layer components {
+  .btn-retro {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border-dark);
+    background-color: var(--bg-card);
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-bright);
+    box-shadow: 4px 4px 0px var(--border-dark);
+    transition: all 0.15s ease-in-out;
+    text-decoration: none;
+  }
+
+  .btn-retro:hover {
+    transform: translateY(-2px);
+    background-color: var(--bg-hover-main);
+    border-color: var(--border-dark);
+    box-shadow: 5px 5px 0px var(--accent-cyan);
+  }
+
+  .btn-retro:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  .btn-retro-secondary {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border-dark);
+    background-color: #1a2332;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    box-shadow: 3px 3px 0px var(--border-dark);
+    transition: all 0.15s ease-in-out;
+    text-decoration: none;
+  }
+
+  .btn-retro-secondary:hover {
+    transform: translateY(-2px);
+    background-color: var(--bg-hover-sec);
+    color: var(--text-bright);
+    border-color: var(--border-dark);
+    box-shadow: 4px 4px 0px var(--accent-green);
+  }
+
+  .btn-retro-secondary:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  .btn-retro-primary {
+    cursor: pointer;
+    width: 100%;
+    border: 2px solid var(--border-dark);
+    background-color: #485c70;
+    padding: 0.625rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    box-shadow: 4px 4px 0px var(--border-dark);
+    transition: all 0.15s ease-in-out;
+  }
+
+  .btn-retro-primary:hover {
+    transform: translateY(-2px);
+    background-color: #586c80;
+    border-color: var(--border-dark);
+    box-shadow: 5px 5px 0px var(--accent-cyan);
+  }
+
+  .btn-retro-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  .btn-retro-wrap {
+    display: inline-block;
+    transition: transform 0.15s ease-in-out;
+    filter: drop-shadow(4px 4px 0px var(--border-dark));
+  }
+
+  .btn-retro-wrap:hover {
+    transform: translateY(-2px);
+    filter: drop-shadow(5px 5px 0px var(--accent-cyan));
+  }
+
+  .btn-retro-wrap:active {
+    transform: translate(2px, 2px);
+    filter: drop-shadow(0px 0px 0px transparent);
+  }
+
+  .btn-retro-inner {
+    cursor: pointer;
+    border: 2px solid var(--border-dark);
+    background-color: var(--bg-card);
+    padding: 0.5rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-bright);
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  }
+
+  .btn-retro-inner:hover {
+    background-color: #202734;
+    border-color: var(--border-dark);
+  }
+
+  .btn-retro-secondary-wrap {
+    display: inline-block;
+    transition: transform 0.15s ease-in-out;
+    filter: drop-shadow(3px 3px 0px var(--border-dark));
+  }
+
+  .btn-retro-secondary-wrap:hover {
+    transform: translateY(-2px);
+    filter: drop-shadow(4px 4px 0px var(--accent-green));
+  }
+
+  .btn-retro-secondary-wrap:active {
+    transform: translate(2px, 2px);
+    filter: drop-shadow(0px 0px 0px transparent);
+  }
+
+  .btn-retro-secondary-inner {
+    cursor: pointer;
+    border: 2px solid var(--border-dark);
+    background-color: #1a2332;
+    padding: 0.4375rem 0.875rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  }
+
+  .btn-retro-secondary-inner:hover {
+    background-color: #202c3e;
+    color: var(--text-bright);
+    border-color: var(--border-dark);
+  }
+
+  .input-retro {
+    width: 100%;
+    border: 2px solid var(--border-dark);
+    background-color: var(--bg-input);
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-bright);
+    outline: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Entro Aesthetic Design System — Cards & Layout System              */
+/* ------------------------------------------------------------------ */
+.clip-card-1,
+.clip-shape-1 {
+  clip-path: polygon(0% 1%, 98% 0%, 100% 97%, 2% 100%);
+}
+
+.clip-card-2,
+.clip-shape-2 {
+  clip-path: polygon(2% 0%, 100% 2%, 98% 100%, 0% 98%);
+}
+
+.clip-card-3,
+.clip-shape-3 {
+  clip-path: polygon(1% 2%, 99% 0%, 97% 99%, 0% 97%);
+}
+
+.clip-input {
+  clip-path: polygon(0% 0%, 99% 1%, 100% 96%, 1% 100%);
+}
+
+.entro-card-wrapper {
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+}
+
+.entro-card-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: translate(0.75rem, 0.75rem);
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
+  opacity: 0.75;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.entro-card-wrapper:hover::after {
+  transform: translate(0.5rem, 0.5rem);
+  opacity: 1;
+}
+
+.entro-card-wrapper:nth-child(3n + 1) {
+  transform: rotate(-1deg) translateY(-0.5rem);
+}
+
+.entro-card-wrapper:nth-child(3n + 2) {
+  transform: rotate(1deg) translateY(0.75rem);
+}
+
+.entro-card-wrapper:nth-child(3n + 3) {
+  transform: rotate(0.5deg) translateY(1rem);
+}
+
+.card-trap {
+  position: relative;
+  border: 2px solid var(--border-dark) !important;
+  background-color: var(--bg-surface);
+  box-shadow: 8px 8px 0px var(--border-dark);
+  transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+.studio-btn {
+  border: 1px solid var(--border-dark) !important;
+  background-color: var(--bg-card);
+  transition: all 200ms ease;
+}
+
+.studio-btn:hover {
+  border-color: var(--border-dark) !important;
+  color: var(--color-moss);
+  box-shadow: 3px 3px 0px var(--accent-cyan);
+}
+
+.primary-action-btn {
+  border: 1px solid var(--border-dark) !important;
+  background-color: var(--color-moss);
+  color: var(--bg-app);
+  transition: all 150ms ease;
+}
+
+.primary-action-btn:hover {
+  filter: brightness(1.1);
+  border-color: var(--border-dark) !important;
+  box-shadow: 3px 3px 0px var(--accent-cyan);
+}
+
+.shadow-login-dark {
+  filter: drop-shadow(10px 10px 0px var(--border-dark));
+}
+
+.shadow-login-sm {
+  filter: drop-shadow(2px 2px 0px var(--border-dark));
+}
+
+.shadow-login-error {
+  filter: drop-shadow(4px 4px 0px var(--border-dark));
+}
+
+.hairline {
+  border: 1px solid rgba(40, 50, 64, 0.6);
+}
+
+.hairline-signal {
+  border: 1px solid rgba(120, 144, 168, 0.5);
+}
+
+.hairline-ember {
+  border: 1px solid rgba(56, 72, 88, 0.6);
+}
+
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+  color: var(--color-slate);
+}
+
+.diagonal-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(40, 50, 64, 0.8) 12%,
+    rgba(40, 50, 64, 0.8) 88%,
+    transparent
+  );
+  transform: rotate(-0.35deg);
+}
+
+.rail-left {
+  margin-left: clamp(1.25rem, 5vw, 4rem);
+  margin-right: clamp(2.5rem, 13vw, 9rem);
+}
+
+.rail-right {
+  margin-left: clamp(2.5rem, 13vw, 9rem);
+  margin-right: clamp(1.25rem, 5vw, 4rem);
+}
+
+.hero-input-wrapper {
+  background-color: var(--bg-card);
+  border-color: var(--border-dark) !important;
+}
+
+.hero-input-wrapper:focus-within {
+  border-color: var(--border-dark) !important;
+  box-shadow: 0 0 12px rgba(96, 120, 144, 0.25);
+}
+
+/* ------------------------------------------------------------------ */
+/* Tailwind v4 Utility Directives                                      */
+/* ------------------------------------------------------------------ */
+@utility clip-card-1 {
+  clip-path: polygon(0% 1%, 98% 0%, 100% 97%, 2% 100%);
+}
+
+@utility clip-card-2 {
+  clip-path: polygon(2% 0%, 100% 2%, 98% 100%, 0% 98%);
+}
+
+@utility clip-card-3 {
+  clip-path: polygon(1% 2%, 99% 0%, 97% 99%, 0% 97%);
+}
+
+@utility clip-shape-1 {
+  clip-path: polygon(0% 1%, 98% 0%, 100% 97%, 2% 100%);
+}
+
+@utility clip-shape-2 {
+  clip-path: polygon(2% 0%, 100% 2%, 98% 100%, 0% 98%);
+}
+
+@utility clip-shape-3 {
+  clip-path: polygon(1% 2%, 99% 0%, 97% 99%, 0% 97%);
+}
+
+@utility clip-input {
+  clip-path: polygon(0% 0%, 99% 1%, 100% 96%, 1% 100%);
+}

@@ -1,0 +1,76 @@
+Build a complete, production-ready Next.js landing page for "entro"—a minimal, highly customizable bio page and site builder designed for creators on Discord, Instagram, and Reddit. 
+
+The design architecture must strictly adhere to Asymmetric Structural Geometry and Quiet Deconstructivism. Functionality and aesthetic must NOT be separate decisions; every interactive feature, conversion point, and content block must directly express off-axis tension, hand-cut angular geometry, and unhurried spatial layout.
+
+---
+
+### 1. CORE VISUAL & STRUCTURAL SYSTEM
+- PALETTE: Muted organic dark tones (Charcoal/Abyss background `#0e0f11`, Deep Ash `#141618`, Bone White typography `#e2e1df`, Soft Slate `#8a8d93`, and subtle Moss/Sage accents `#8b938b`). Strictly NO saturated neons, harsh gradients, or bright accents.
+- GEOMETRY: No rounded corners (`rounded-*`) or perfectly symmetrical blocks. Containers, cards, inputs, and buttons must use custom asymmetric clip-paths (`clip-path: polygon(...)`) with subtle tilt variances (1–3 degree off-axis slants).
+- SPATIAL RHYTHM: Unhurried vertical pacing (`py-28` to `py-36`). High negative space. Column grids must be off-grid or vertically offset (`translate-y-8`) rather than neatly aligned 2x2 or 3x3 grids.
+- TYPOGRAPHY: Clean sans-serif headers (`font-light` / `font-medium`) paired with occasional italic serif text accents and lowercase monospace structural labels (e.g., `[sys_01]`, `// framework`).
+
+---
+
+### 2. PAGE SECTIONS & ALIGNED FUNCTIONALITY
+
+#### A. Header / Navigation
+- ASYMMETRIC LOGO: Brand emblem featuring an off-angle cut shape alongside lowercase "entro." text.
+- SPACIOUS NAV: Muted text links (`frameworks`, `philosophy`, `pricing`) spaced far apart.
+- ACTION: An asymmetrically cut CTA button (`open editor`) that routes to `/editor`.
+
+#### B. Hero Section (Conversion Engine)
+- HEADLINE: Unaligned, multi-line statement contrasting rigid architectural frameworks with fluid personal expression.
+- ASYMMETRIC HANDLE RESERVATION BAR (Primary Conversion Mechanic): 
+  - A text input for users to claim their handle (`entro.site/yourname`).
+  - Container features an off-axis "ghost shadow" frame offset behind it.
+  - The submit button (`claim ➔`) must have hand-cut, uneven diagonal padding that visually "pulls" the input row forward, routing seamlessly to `/editor?slug=yourname`.
+- INTERACTIVE ABSTRACT PREVIEW CARD:
+  - An off-center, slightly tilted mock card showing a live preview of an entro site.
+  - Interactive hover state that subtly levels the tilt (0 degrees) to give feedback of active tension.
+  - Displays social link blocks (Discord, Instagram, Audio) with left-border accents and subtle diagonal right edges.
+
+#### C. Frameworks / Template Variety Showcase
+- CONCEPT: Demonstrate that entro offers vastly different template architectures (not just recolors).
+- ASYMMETRIC LAYOUT: A 2-column or 3-column split where Card A is wider and sits lower, while Card B is narrower and offset higher.
+- CONTENT: 
+  - Show minimal wireframes of different site types (e.g., Mono Spatial for Reddit/devs, Kinetic Type for Instagram, Soundgrid for Discord creators).
+  - Each card features hand-cut angular borders and a $0.99 individual tag.
+
+#### D. Honest Dual-Tier Pricing (Stripe Aligned)
+- TENSION-BASED COMPARISON: Two pricing cards placed on unequal axes to draw natural focus.
+  1. $0.99 Single Framework (One-time purchase): Hand-cut dark container. Built for creators who only want one custom layout forever.
+  2. $5.00/mo Entro Membership (Subscription): Offset slightly higher with an asymmetric "ALL-ACCESS" corner tag. Unlocks all template frameworks and hosting.
+- FUNCTIONALITY: Primary CTA buttons on both cards routing to checkout/editor setup without bloated modal popups.
+
+#### E. Creator Marketplace Teaser
+- LAYOUT: Wide, single-row container with an asymmetrical angular crop.
+- VALUE PROP: Explain that developers can build custom template frameworks and monetize them on the entro network via Stripe.
+
+#### F. Philosophy / Manifesto
+- A quiet, centered section with wide padding and subtle vertical line markers emphasizing why entro exists: restoring structural variety and intentionality to creator bio links.
+
+#### G. Asymmetric Footer
+- Muted links, legal routes (`/terms`, `/privacy`), and a single-line email intake styled with a clipped diagonal button edge.
+- Micro-labels indicating technical stack: `[powered by stripe & supabase]`.
+
+---
+
+### 3. TECHNICAL SPECIFICATIONS
+- Built with Next.js (App Router), Tailwind CSS, and inline/utility CSS `clip-path` definitions.
+- Responsive design: Ensures clip-paths adjust cleanly on mobile without clipping text or functional touch targets.
+
+
+
+
+
+
+
+
+
+
+
+
+Design a web interface using an Asymmetric Brutalist Minimalist aesthetic. The color palette must be deeply muted organic dark tones: charcoal background (#0e0f11), bone white typography (#e2e1df), and soft sage/moss accents (#8b938b). Avoid saturated gradients or neon colors. Every container, button, and card must feature subtle asymmetric cut corners and slants using custom CSS clip-paths or angular geometry. Use generous, unhurried spacing with off-grid column stacking, subtle 1px slate borders, monospace taglines, and lowercase editorial typography. The overall visual tone should feel intentional, quiet, structural, and subtly chaotic rather than flashy or symmetrical.
+
+Design a web layout driven by Asymmetric Structural Geometry and Quiet Deconstructivism. The visual identity must avoid perfect symmetry, rounded corners, or standard grid alignment. Every card, button, and container must feature hand-cut angular clip-paths, subtle off-axis diagonal slants, and offset structural frames behind containers to create visual tension. Use generous negative space, unhurried vertical scrolling, off-grid column stacking, and structural monospace micro-labels. The design should feel architectural, quiet, intentional, and subtly chaotic.
