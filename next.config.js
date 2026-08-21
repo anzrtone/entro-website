@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Your standard config options
+  output: 'export',
+  basePath: '/entro-website',
+  images: {
+    unoptimized: true,
+  },
 };
 
 module.exports = nextConfig;
